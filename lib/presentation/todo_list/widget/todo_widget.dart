@@ -11,38 +11,41 @@ class TodoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Slidable(
-      endActionPane: ActionPane(
-        // key: Key(todo.id!),
-        motion: const ScrollMotion(),
-        children: [
-          SlidableAction(
-            // An action can be bigger than the others.
-            flex: 2,
-            onPressed: (_) {},
-            backgroundColor: Colors.red,
-            foregroundColor: Colors.white,
-            icon: Icons.delete,
-            label: 'Delete',
-          ),
-        ],
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Slidable(
+        endActionPane: ActionPane(
+          // key: Key(todo.id!),
+          motion: const ScrollMotion(),
+          children: [
+            SlidableAction(
+              // An action can be bigger than the others.
+              flex: 2,
+              onPressed: (_) {},
+              backgroundColor: Colors.red,
+              foregroundColor: Colors.white,
+              icon: Icons.delete,
+              label: 'Delete',
+            ),
+          ],
+        ),
+        startActionPane: ActionPane(
+          // key: Key(todo.id!),
+          motion: const ScrollMotion(),
+          children: [
+            SlidableAction(
+              // An action can be bigger than the others.
+              flex: 2,
+              onPressed: (_) {},
+              backgroundColor: Colors.green,
+              foregroundColor: Colors.white,
+              icon: Icons.edit,
+              label: 'Edit',
+            ),
+          ],
+        ),
+        child: buildTodo(context),
       ),
-      startActionPane: ActionPane(
-        // key: Key(todo.id!),
-        motion: const ScrollMotion(),
-        children: [
-          SlidableAction(
-            // An action can be bigger than the others.
-            flex: 2,
-            onPressed: (_) {},
-            backgroundColor: Colors.green,
-            foregroundColor: Colors.white,
-            icon: Icons.edit,
-            label: 'Edit',
-          ),
-        ],
-      ),
-      child: buildTodo(context),
     );
   }
 

@@ -17,24 +17,22 @@ class TodoFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const SizedBox(
-            height: 30,
-          ),
-          buildTile(),
-          const SizedBox(
-            height: 30,
-          ),
-          buildDescription(),
-          const SizedBox(
-            height: 30,
-          ),
-          buildButton(context),
-        ],
-      ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        const SizedBox(
+          height: 30,
+        ),
+        buildTile(),
+        const SizedBox(
+          height: 30,
+        ),
+        buildDescription(),
+        const SizedBox(
+          height: 30,
+        ),
+        buildButton(context),
+      ],
     );
   }
 
