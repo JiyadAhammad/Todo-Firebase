@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class TodoFormWidget extends StatelessWidget {
+class TodoFormWidget extends StatefulWidget {
   final String title;
   final String description;
   final ValueChanged<String> onChangedTitle;
@@ -15,6 +15,11 @@ class TodoFormWidget extends StatelessWidget {
       required this.onSavedTodo})
       : super(key: key);
 
+  @override
+  State<TodoFormWidget> createState() => _TodoFormWidgetState();
+}
+
+class _TodoFormWidgetState extends State<TodoFormWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -41,8 +46,8 @@ class TodoFormWidget extends StatelessWidget {
       
       maxLines: 1,
       minLines: 1,
-      initialValue: title,
-      onChanged: onChangedTitle,
+      initialValue: widget.title,
+      onChanged: widget.onChangedTitle,
       validator: (title) {
         if (title!.isEmpty) {
           return 'Text title canot be Empty';
@@ -60,8 +65,8 @@ class TodoFormWidget extends StatelessWidget {
     return TextFormField(
       maxLines: 2,
       // minLines: 1,
-      initialValue: description,
-      onChanged: onChangedDescroption,
+      initialValue: widget.description,
+      onChanged: widget.onChangedDescroption,
       validator: (description) {
         if (description!.isEmpty) {
           return 'Text description cannot be Empty';
@@ -80,7 +85,7 @@ class TodoFormWidget extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
         onHover: (value) => true,
-        onPressed: onSavedTodo,
+        onPressed: widget.onSavedTodo,
         child: const Text(
           'Save Todo',
         ),
